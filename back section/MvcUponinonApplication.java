@@ -29,7 +29,7 @@ public class MvcUponinonApplication extends WebMvcConfigurationSupport {
 	
 	@Override
 	 public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	    String myExternalFilePath = "file:D:home/profileImages/"; // end your path with a /
+	    String myExternalFilePath = "file:D:profileImages/"; // end your path with a /
 	  //  String myExternalFilePath = "file:/home/profileImages/";
 	        registry
 	          .addResourceHandler("/**")
@@ -80,7 +80,7 @@ public class MvcUponinonApplication extends WebMvcConfigurationSupport {
 	public SpringResourceTemplateResolver templateResolver() {
 	  SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
 	  //templateResolver.setPrefix("file:/home/templates/");
-	  templateResolver.setPrefix("file:D:/spring boota/eclipse-workspace/jedarView/templates/");
+	  templateResolver.setPrefix("file:D:/pathToView/jedarView/templates/");
 	  templateResolver.setSuffix(".html");
 	  templateResolver.setCharacterEncoding("UTF-8");
 	  return templateResolver;
