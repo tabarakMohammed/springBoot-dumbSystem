@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/header :: header">
+        <title th:remove="all"></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    
+    
+    <body class="centered_div" style="background-color: #e5df88;">
+      
+      
+        <div th:insert="fragments/footer :: body"></div>
+      
+        <p style="font-weight: bold;" >jedar althiqa  </p>
+       
+         <br/>
+<!--          th:text="#{theMessage}" -->
+<!--         th:text="#{BACK}" -->
+        <a   class="btn btn-outline-success btn-lg btn-block "  href="/welcome"> BACK</a>
+      
+        <a   class="btn btn-outline-success btn-lg btn-block "  href="https://www.instagram.com/flowapp/">instagram</a>
+    
+        <p>
+        
+         
+    </body>
+    
+    <footer style="  border-top: 1px solid #4c4c4c;">
+    
+       <br />
+       
+            &emsp; <em> jedar althiqa Team</em>
+			
+       
+    </footer>
+    
+    <style>
+  
+    .centered_div {
+ 
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+     }
+   
+    </style>
+</html>
+
+
+

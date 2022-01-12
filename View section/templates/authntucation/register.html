@@ -1,0 +1,361 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<!--   <head th:insert="fragments/header :: header"> -->
+    
+         <!-- Required meta tags -->
+    <meta charset="utf-8">
+  
+    <title th:text="jedarAlthiqa"></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="jedar althiqa new send your message , opinion honestly join now !" />
+	<meta name="robots" content="jedar althiqa, جدار الثقة, social app , social web app" />
+      <meta name="googlebot" content="jedar althiqa, جدار الثقة, social app , social web app" />
+      <link rel="shortcut icon" href="/profileImage/favicon.ico" />
+
+    <!-- Bootstrap CSS -->
+<!--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    
+  </head>
+  <body  th:attr="dir=#{direction}" >
+  <div class="container"  th:align="#{styleRight}" >
+  
+    <div class="form-group" >
+        <form name="f" id="form"  th:action="@{/saveUsers}" th:object="${user}"  method="post">               
+            <fieldset>
+                <legend th:text="#{title.PleaseRegister}"></legend>    
+                   
+        
+              <p>  <label  for="firstName" th:text="#{label.firstname}"></label>           
+             
+              
+              <label th:each="err : ${#fields.errors('firstName')}"> 
+              
+                <span style="color: red;" th:if="${err == 'notBlank' }" th:text="#{error.firstname.notBlank}"></span>
+                <span style="color: red;" th:if="${err == 'max' }" th:text="#{error.firstname.max}"></span>
+              
+              </label> 
+             
+            <input type="text"  class="form-control" th:field="*{firstName}" /> </p>
+            
+             
+             
+             
+             <label  for="lastname" th:text="#{label.lastname}"></label>
+             
+              <label th:each="err : ${#fields.errors('lastName')}"> 
+              
+                <span style="color: red;" th:if="${err == 'notBlank' }" th:text="#{error.lastname.notBlank}"></span>
+                <span style="color: red;" th:if="${err == 'max' }" th:text="#{error.lastname.max}"></span>
+              
+              </label> 
+             
+             
+         <!--     <label th:if="${#fields.hasErrors('lastName')}" th:errors=*{lastName}></label>  -->
+             
+             
+             
+             <input type="text" class="form-control" th:field=" *{lastName}" /> 
+               
+                
+                <label  for="username" th:text="#{label.username}"></label>
+                <label th:each="err : ${#fields.errors('username')}"> 
+              
+                <span style="color: red;" th:if="${err == 'notBlank' }"  th:text="#{error.username.notBlank}"></span>
+                <span style="color: red;" th:if="${err == 'max' }"  th:text="#{error.username.max}"></span>
+                <span style="color: red;" th:if="${err == 'nameTaken' }" th:text="#{error.username.taken}"></span>
+              
+              </label> 
+             
+                
+                
+               <!--   <label th:if="${#fields.hasErrors('username')}" th:errors=*{username}></label>    -->
+                                           
+                <input type="text" class="form-control"  th:field="*{username}" /> 
+                
+                
+                <label  for="email" th:text="#{label.eamil}"></label>
+	            <label  th:each="err : ${#fields.errors('email')}"> 
+	              
+	                <span style="color: red;" th:if="${err == 'notBlank' }" th:text="#{error.email.notBlank}"></span>
+	                <span style="color: red;" th:if="${err == 'max' }"  th:text="#{error.email.max}"></span>
+	                <span style="color: red;" th:if="${err == 'emailNotRight' }" th:text="#{error.email.emailNotRight}"></span>
+	                <span style="color: red;" th:if="${err == 'emailTaken' }" th:text="#{error.email.taken}"></span>
+	                
+	              
+	            </label>      
+                
+                 <!--  <label th:if="${#fields.hasErrors('email')}" th:errors=*{email}> </label>     -->        
+                <input type="text" class="form-control" th:field="*{email}" /> 
+                
+                 
+              
+                <label for="password" th:text="#{label.Password}">Password</label>
+                <label th:each="err : ${#fields.errors('password')}"> 
+	              
+	                <span style="color: red;" th:if="${err == 'notEmpty' }" th:text="#{error.password.notBlank}"></span>
+	                <span style="color: red;" th:if="${err == 'notNull' }" th:text="#{error.password.notBlank}"></span>
+	              
+	            </label> 
+	                
+             <!--    <label th:if="${#fields.hasErrors('password')}" th:errors=*{password}> </label> --> 
+                <input type="password"   class="form-control" th:field="*{password}" />   
+        
+             
+              <!--
+                <div th:object="${role}">
+                
+                <label for="id">id</label>
+                <input type="text" class="form-control" th:field="*{id}" />   
+                authority
+                
+                <label for="authority">authority</label>
+                <input type="text" class="form-control" th:field="*{authority}" />   
+                
+                </div >
+                -->
+                
+                <br>
+                <div class="form-actions">
+                    <button 
+                    id="submitBtn"
+                     
+                     type="submit" value="saveUsers" class="btn btn-primary" th:text="#{button.create}"  >
+                     
+                
+                   
+                    </button> 
+                  
+                 
+                </div>
+              
+                
+            </fieldset>
+        </form>
+        
+    </div>
+    <p th:text="${errorVerfey}"></p>
+    <p id="sbtMessage" hidden="true" th:text="#{register.submit}"></p>    
+   
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- 
+                     th:onclick="|{disB('${#fields.hasErrors('*')}')}|"
+                     id="buu" -->
+  </body>
+  
+  <style>
+  
+  :root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace
+}
+
+*,::after,::before {
+    box-sizing: border-box
+}
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent
+}
+
+
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff
+}
+
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem
+}
+
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem
+}
+
+button {
+    border-radius: 0
+}
+
+
+button,input,optgroup,select,textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit
+}
+
+button,input {
+    overflow: visible
+}
+
+button,select {
+    text-transform: none
+}
+
+[type=button],[type=reset],[type=submit],button {
+    -webkit-appearance: button
+}
+
+[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled) {
+    cursor: pointer
+}
+
+
+fieldset {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: 0
+}
+
+legend {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+    line-height: inherit;
+    color: inherit;
+    white-space: normal
+}
+
+
+[hidden] {
+    display: none!important
+}
+
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width:540px
+    }
+}
+
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+
+.form-group {
+    margin-bottom: 1rem
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+
+.btn:hover {
+    color: #212529;
+    text-decoration: none
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc
+}
+
+  
+  
+  
+  </style>
+  
+  
+  
+  
+  
+  
+</html>
+
+<script type="text/javascript">
+var form = document.getElementById('form');
+var submitBtn = document.getElementById('submitBtn');
+var measseage = document.getElementById('sbtMessage').innerHTML;
+
+form.addEventListener("submit", event => { 
+	submitBtn.innerHTML = measseage;   
+    submitBtn.disabled= true;
+});
+
+</script>

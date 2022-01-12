@@ -1,0 +1,78 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" th:attr="dir=#{direction}">
+<head th:insert="fragments/header :: header">
+       	  
+     
+       
+</head>
+<body>
+
+ <div th:insert="fragments/header :: navbar" ></div>
+    
+    
+    
+  <div class="container"  >
+  
+  <br> 
+          <div style="border-bottom: 0.1px solid #70a1ff; ">
+            <p style="text-align: center; font-family: monospace;" th:text="#{label.welcome}"></p>
+          </div>
+  <br>
+          <div class="form-group" style=" padding-top: 15%; text-align: center; top:50% " >
+          <form name="f"  th:action="@{/search}"  method="GET" >               
+            <fieldset >
+            
+                <label   for="username"  th:text="#{label.searchByUsername}"> </label>
+              
+                <input style="text-align: center; " type="text" class="form-control"  name="username" th:value="${username}"  /> 
+            
+                <div class="form-actions"  style="text-align: center; padding-top: 5%;" >
+                    <button type="submit" value="search"  class="btn btn-secondary "  th:text="#{label.Search}"></button>
+                </div>
+                
+             </fieldset>
+             </form>
+             </div>      
+          
+       
+       
+ 
+    
+  </div>
+  
+  
+  
+
+        
+  
+  <div th:insert="fragments/footer :: body"></div>
+  
+     <div  class="triangle-toprleft"></div>
+
+      <div class="triangle-topright"></div>
+  
+
+	<div class="hardLine" >
+		 <p> 
+			 <a  href="/about" th:text="#{about}"  ></a>
+		</p>
+     </div>
+ 
+</body>
+
+ 
+ 
+  
+  
+         
+</html>
+
+
+             
+
+	
+          

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"   th:attr="dir=#{direction}">
+<head th:insert="fragments/header :: header">
+<meta charset="UTF-8">
+<title>Email</title>
+</head>
+<body class="centered_div">
+
+
+  <div th:insert="fragments/footer :: body"></div>
+ 
+<p style="font-family: monospace; font-weight: bolder; font-size: 20px"  th:text="#{p.message}"></p>
+
+<p style="font-family: monospace; font-weight: bolder; font-size: 20px"  th:text="#{please.active.message}"></p>
+
+<a href="/welcome" class="btn btn-success" th:text="#{ button.goBack}">
+ 
+ 
+
+</a>
+
+</body>
+
+<style>
+
+.centered_div {
+ 
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+</style>
+</html>

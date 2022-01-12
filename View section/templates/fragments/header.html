@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" >
+<head th:fragment="header">
+<meta charset="UTF-8">
+
+<title th:text="jedarAlthiqa"></title>
+<link rel="shortcut icon" href="/profileImage/favicon.ico" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+
+<!-- 		<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/> -->
+	    <link rel="stylesheet" th:href="@{/css/navbar.css}"/>
+		   
+  
+  
+    
+
+
+</head>
+
+
+
+
+<body  >
+<div  th:fragment="navbar"   th:attr="dir=#{direction}">
+
+
+    
+     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a href="/welcome" style="background-color: #70a1ff; " class="navbar-brand">ج</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" onclick="showmenu()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse"  id="myUL">
+            <div class="navbar-nav">
+                <a href="/welcome" class="nav-item nav-link active" th:text="#{label.home}">Home</a>
+                <a href="/createProfile" class="nav-item nav-link" th:text="#{label.profile}">Profile</a>
+            </div>
+            
+            <div class="navbar-nav ml-auto">
+            
+				
+			
+            </div>
+     
+              <form class="navbar-nav form-inline">
+         	
+         	   <div class="nav-item px-4">
+         	   <select  th:onchange="'lun(this.value)'" id="locales">
+				    <option disabled selected  th:text="#{lang.change}"></option>
+				    <option value="ar" th:text='#{lang.arb}'></option>
+				    <option value="en" th:text="#{lang.eng}"></option>
+				    <option value="fr" th:text="#{lang.fr}"></option>
+				    <option value="tr" th:text='#{lang.tr}'></option>
+				    <option value="ku" th:text="#{lang.ku}"></option>
+				    <option value="fa" th:text="#{lang.fa}"></option>
+				    <option value="es" th:text="#{lang.es}"></option>
+				    
+				</select>
+			    </div>    
+              
+              <br>
+                 <a href="/logout" class="btn btn-outline-danger nav-item nav-link"  th:text="#{label.logout}">Logout</a>
+            </form>
+        </div>
+        
+        <script type="text/javascript">
+        function lun(scr){
+			
+        	  if (scr != ''){
+		            window.location.replace('/?lang=' + scr);
+		        }
+		}
+			
+        </script>
+    </nav>
+     <script  th:src="@{/js/navbar.js}"   type="text/javascript"></script>
+</div>
+ <div ></div>
+</body>
+		
+	
+	
+
+</html>
